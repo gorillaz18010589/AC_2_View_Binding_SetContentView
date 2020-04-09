@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+A.<layout>包覆整個xml</layout>,並且當最外層所以設定在此
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+B.data綁定Student類別方式
+     <data>  //data設定
+        <variable //變量
+            name="student" //要綁定的類別名稱
+            type="com.example.ac_2_view_binding.Student" /> //要綁定的類別
+    </data>
+
+C.使用@{}語法:直接將這邊的text => 設定為寫好的類別的屬性
+     android:text="@{student.firstName}" //將textView設定為student類別的屬性firstName值
+     android:text="@{student.lasttName}" //將textView設定為student類別的屬性lastName值
+
+-->
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="student"
+            type="com.example.ac_2_view_binding.Student" />
+    </data>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{student.firstName}"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{student.lastName}"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        />
+
+</LinearLayout>
+
+</layout>
